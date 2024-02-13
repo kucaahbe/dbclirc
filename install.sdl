@@ -1,3 +1,4 @@
 install {
   ln `my.cnf` `~/.my.cnf`
+  ln `myclirc` `~/.myclirc`
 }
