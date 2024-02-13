@@ -1,0 +1,3 @@
+install {
+  ln `my.cnf` `~/.my.cnf`
+}
