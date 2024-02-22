@@ -1,0 +1,18 @@
+#!/bin/bash
+# usage:
+# save this file into $HOME/bin/mysql (don't forget to make it executable)
+# and make sure $HOME/bin is in PATH environment variable before folder where original mysql binary is located.
+# for instance mysql binary is here: /usr/local/bin/mysql, than PATH should be like:
+# /home/user/bin:/usr/local/bin:...
+set -e
+
+declare -a args=()
+
+for arg in "$@"; do
+  # exclude unsupported --default-character-set=... option
+  [[ "$arg" =~ ^--default-character-set= ]] && continue
+
+  args+=("$arg")
+done
+
+exec mycli --defaults-group-suffix _mycli "${args[@]}"

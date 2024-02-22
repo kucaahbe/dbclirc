@@ -1,3 +1,4 @@
+# vi: ft=dosini
 [main]
 
 # Enables context sensitive auto-completion. If this is disabled the all
@@ -26,21 +27,24 @@ log_level = INFO
 # line below.
 # audit_log = ~/.mycli-audit.log
 
-# Timing of sql statments and table rendering.
+# Timing of sql statements and table rendering.
 timing = True
+
+# Beep after long-running queries are completed; 0 to disable.
+beep_after_seconds = 0
 
 # Table format. Possible values: ascii, double, github,
 # psql, plain, simple, grid, fancy_grid, pipe, orgtbl, rst, mediawiki, html,
 # latex, latex_booktabs, textile, moinmoin, jira, vertical, tsv, csv.
 # Recommended: ascii
-# table_format = ascii
-table_format = psql
+table_format = ascii
 
 # Syntax coloring style. Possible values (many support the "-dark" suffix):
 # manni, igor, xcode, vim, autumn, vs, rrt, native, perldoc, borland, tango, emacs,
 # friendly, monokai, paraiso, colorful, murphy, bw, pastie, paraiso, trac, default,
 # fruity.
 # Screenshots at http://mycli.net/syntax
+# Can be further modified in [colors]
 syntax_style = default
 
 # Keybindings: Possible values: emacs, vi.
@@ -49,7 +53,7 @@ syntax_style = default
 key_bindings = emacs
 
 # Enabling this option will show the suggestions in a wider menu. Thus more items are suggested.
-wider_completion_menu = False
+wider_completion_menu = True
 
 # MySQL prompt
 # \D - The full current date
@@ -59,13 +63,15 @@ wider_completion_menu = False
 # \n - Newline
 # \P - AM/PM
 # \p - Port
-# \R - The current time, in 24-hour military time (0–23)
-# \r - The current time, standard 12-hour time (1–12)
+# \R - The current time, in 24-hour military time (0-23)
+# \r - The current time, standard 12-hour time (1-12)
 # \s - Seconds of the current time
-# \t - Product type (Percona, MySQL, Mariadb)
+# \t - Product type (Percona, MySQL, MariaDB, TiDB)
+# \A - DSN alias name (from the [alias_dsn] section)
 # \u - Username
-prompt = 'mysql://\u@\h:\p/\d | \D\n> '
-prompt_continuation = '  '
+# \x1b[...m - insert ANSI escape sequence
+prompt = "mysql://\u@\h:\p/\d | \D\n> "
+prompt_continuation = "  "
 
 # Skip intro info on startup and outro info on exit
 less_chatty = True
@@ -80,40 +86,14 @@ auto_vertical_output = False
 # keyword casing preference. Possible values "lower", "upper", "auto"
 keyword_casing = auto
 
-# Custom colors for the completion menu, toolbar, etc.
-[colors]
-# Completion menus.
-Token.Menu.Completions.Completion.Current = 'bg:#00aaaa #000000'
-Token.Menu.Completions.Completion = 'bg:#008888 #ffffff'
-Token.Menu.Completions.MultiColumnMeta = 'bg:#aaffff #000000'
-Token.Menu.Completions.ProgressButton = 'bg:#003333'
-Token.Menu.Completions.ProgressBar = 'bg:#00aaaa'
-
-# Query results
-Token.Output.Header = 'bold'
-Token.Output.OddRow = ''
-Token.Output.EvenRow = ''
-
-# Selected text.
-Token.SelectedText = '#ffffff bg:#6666aa'
-
-# Search matches. (reverse-i-search)
-Token.SearchMatch = '#ffffff bg:#4444aa'
-Token.SearchMatch.Current = '#ffffff bg:#44aa44'
-
-# The bottom toolbar.
-Token.Toolbar = 'bg:#222222 #aaaaaa'
-Token.Toolbar.Off = 'bg:#222222 #888888'
-Token.Toolbar.On = 'bg:#222222 #ffffff'
-
-# Search/arg/system toolbars.
-Token.Toolbar.Search = 'noinherit bold'
-Token.Toolbar.Search.Text = 'nobold'
-Token.Toolbar.System = 'noinherit bold'
-Token.Toolbar.Arg = 'noinherit bold'
-Token.Toolbar.Arg.Text = 'nobold'
+# disabled pager on startup
+enable_pager = True
 
 # Favorite queries.
 [favorite_queries]
+tables_sizes = "SELECT TABLE_NAME AS 'Table', (DATA_LENGTH + INDEX_LENGTH) / POWER(1024,2) AS `Size (MB)` FROM information_schema.TABLES WHERE TABLE_SCHEMA = DATABASE() ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC;"
 
-# vi: ft=dosini
+# Use the -d option to reference a DSN.
+# Special characters in passwords and other strings can be escaped with URL encoding.
+[alias_dsn]
+# example_dsn = mysql://[user[:password]@][host][:port][/dbname]

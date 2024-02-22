@@ -1,4 +1,5 @@
 install {
   ln `my.cnf` `~/.my.cnf`
   ln `myclirc` `~/.myclirc`
+  ln `mycli-mysql` `~/bin/mysql`
 }
