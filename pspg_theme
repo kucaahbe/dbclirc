@@ -1,0 +1,20 @@
+template = 22
+template_menu = 16
+
+# background = black, white
+# data = black, white
+# label = black, white, italic, bold
+# border = #000000, white
+# footer = lightgray, white
+# cursor_data = blue, white, italic, bold, dim, reverse
+# cursor_border = blue, blue , italic, bold, dim, reverse
+# cursor_label = blue, white, italic, bold, dim, reverse
+# cursor_footer = blue, white, italic, bold, dim, reverse
+# cursor_bookmark = red, white, italic, bold, dim, reverse
+# cross_cursor = white, blue, italic, bold
+# cross_cursor_border = brightblue, blue
+# status_bar = black, lightgray
+# title = black, lightgray
+# scrollbar_arrows = black, white
+# scrollbar_background = lightgray, white
+# scrollbar_slider = white, gray
