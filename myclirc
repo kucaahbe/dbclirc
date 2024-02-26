@@ -4,6 +4,7 @@ prompt_continuation = "  "
 
 table_format = ascii
 
+# SQL queries highlight
 syntax_style = native
 
 key_bindings = emacs
@@ -21,6 +22,7 @@ keyword_casing = upper
 # allows multi-line SQL
 multi_line = True
 
+# Timing of sql statments and table rendering.
 timing = True
 
 destructive_warning = True

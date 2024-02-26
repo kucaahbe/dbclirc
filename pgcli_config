@@ -1,0 +1,45 @@
+[main]
+prompt = '(PID:\i) postgresql://\u\#\H:\p/\d | \t\n> '
+# Character used to left pad multi-line queries to match the prompt size.
+multiline_continuation_char = ''
+
+table_format = psql
+
+# SQL queries highlight
+syntax_style = native
+
+# use emacs keybindings
+vi = False
+
+# Skip intro on startup and goodbye on exit
+less_chatty = True
+
+smart_completion = True
+# Display the completions in several columns. (More completions will be
+# visible.)
+wider_completion_menu = True
+
+# keyword casing preference. Possible values "lower", "upper", "auto"
+keyword_casing = upper
+
+# allows multi-line SQL
+multi_line = True
+
+# Timing of sql statments and table rendering.
+timing = True
+
+# Destructive warning mode will alert you before executing a sql statement
+# that may cause harm to the database such as "drop table", "drop database"
+# or "shutdown".
+destructive_warning = True
+
+# log_file location.
+# In Unix/Linux: ~/.config/pgcli/log
+log_file = /dev/null
+
+pager = pspg --style=16 --reprint-on-exit --force-uniborder --quit-if-one-screen --bold-labels --no-sigint-search-reset
+
+[alias_dsn]
+kuca = postgresql://kuca@192.168.100.3:5432/tests
+
+# vi: ft=dosini

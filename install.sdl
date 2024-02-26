@@ -2,5 +2,8 @@ install {
   ln `my.cnf` `~/.my.cnf`
   ln `myclirc` `~/.myclirc`
   ln `mycli-mysql` `~/bin/mysql`
+
   ln `pspg_theme` `~/.pspg_theme_my`
+
+  ln `pgcli_config` `~/.config/pgcli/config`
 }
