@@ -1,5 +1,5 @@
 [main]
-prompt = '(PID:\i) postgresql://\u\#\H:\p/\d | \t\n> '
+prompt = '(PID:\i) postgresql://\u@\H:\p/\d | \t\n\# '
 # Character used to left pad multi-line queries to match the prompt size.
 multiline_continuation_char = ''
 
