@@ -15,4 +15,4 @@ for arg in "$@"; do
   args+=("$arg")
 done
 
-exec mycli _mycli "${args[@]}"
+exec mycli "${args[@]}"
