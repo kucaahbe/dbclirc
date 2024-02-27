@@ -15,4 +15,4 @@ for arg in "$@"; do
   args+=("$arg")
 done
 
-exec mycli "${args[@]}"
+exec mycli --defaults-group-suffix="_mycli" "${args[@]}"
