@@ -31,7 +31,11 @@ timing = True
 # Destructive warning mode will alert you before executing a sql statement
 # that may cause harm to the database such as "drop table", "drop database"
 # or "shutdown".
-destructive_warning = True
+destructive_warning = drop, shutdown, delete, truncate, alter, update, unconditional_update
+
+# Auto-retry queries on connection failures and other operational errors. If
+# False, will prompt to rerun the failed query instead of auto-retrying.
+auto_retry_closed_connection = True
 
 # log_file location.
 # In Unix/Linux: ~/.config/pgcli/log
