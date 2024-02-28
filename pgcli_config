@@ -37,7 +37,7 @@ destructive_warning = True
 # In Unix/Linux: ~/.config/pgcli/log
 log_file = /dev/null
 
-pager = pspg --style=16 --reprint-on-exit --force-uniborder --quit-if-one-screen --bold-labels --no-sigint-search-reset
+pager = pspg --reprint-on-exit --force-uniborder --quit-if-one-screen --bold-labels --no-sigint-search-reset --no-last-row-search --no-mouse --custom-style=my #--log=~/.pspg.log
 
 [alias_dsn]
 kuca = postgresql://kuca@192.168.100.3:5432/tests
